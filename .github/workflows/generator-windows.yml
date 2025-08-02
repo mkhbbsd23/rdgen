@@ -375,7 +375,7 @@ jobs:
           mv ./res/tray-icon.ico ./res/tray-icon.ico.bak
 
       - name: Show files in repo root
-        run: Get-ChildItem -Force | Format-List
+        run: Get-ChildItem
 
       - name: magick stuff
         if: ${{ inputs.iconlink != 'false' }}
