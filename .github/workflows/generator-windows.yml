@@ -377,8 +377,15 @@ jobs:
       - name: magick stuff
         if: ${{ inputs.iconlink != 'false' }}
         continue-on-error: true
+        env:
+          ICON_URL: ${{ fromJson(inputs.iconlink).url }}
+          ICON_FILE: ${{ fromJson(inputs.iconlink).file }}
+          ICON_UUID: ${{ fromJson(inputs.iconlink).uuid }}
         run: |
-          Invoke-WebRequest -Uri ${{ fromJson(inputs.iconlink).url }}/get_png?filename=${{ fromJson(inputs.iconlink).file }}"&"uuid=${{ fromJson(inputs.iconlink).uuid }} -OutFile ./res/icon.png 
+          $url = $env:ICON_URL -replace '^https:', 'http:'
+          $fullUrl = "$url/get_png?filename=$($env:ICON_FILE)&uuid=$($env:ICON_UUID)"
+          Write-Host "Downloading from: $fullUrl"
+          Invoke-WebRequest -Uri $fullUrl -OutFile ./res/icon.png
           mv ./res/32x32.png ./res/32x32.png.bak
           mv ./res/64x64.png ./res/64x64.png.bak
           mv ./res/128x128.png ./res/128x128.png.bak
