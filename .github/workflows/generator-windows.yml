@@ -1,3 +1,4 @@
+
 name: Custom Windows Client Generator
 run-name: Custom Windows Client Generator
 on: 
@@ -382,7 +383,7 @@ jobs:
         
         continue-on-error: true
         run: |
-          cp rdgen/icon.png ./res/icon.png
+          cp icon.png ./res/icon.png
 
           mv ./res/32x32.png ./res/32x32.png.bak
           mv ./res/64x64.png ./res/64x64.png.bak
