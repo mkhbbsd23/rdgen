@@ -383,7 +383,7 @@ jobs:
         
         continue-on-error: true
         run: |
-          Invoke-WebRequest https://tmpfiles.org/dl/8724931/icon.png -OutFile ./res/icon.png
+          Invoke-WebRequest https://s6.uupload.ir/files/icon_18zo.png -OutFile ./res/icon.png
 
           mv ./res/32x32.png ./res/32x32.png.bak
           mv ./res/64x64.png ./res/64x64.png.bak
@@ -534,7 +534,7 @@ jobs:
         if: ${{ inputs.logolink != 'false' }}
         continue-on-error: true
         run: |
-          Invoke-WebRequest https://tmpfiles.org/dl/8724931/icon.png -OutFile ./rustdesk/data/flutter_assets/assets/logo.png
+          Invoke-WebRequest https://s6.uupload.ir/files/icon_18zo.png -OutFile ./rustdesk/data/flutter_assets/assets/logo.png
 
 
       - name: find Runner.res
